@@ -42,6 +42,9 @@ async function autoInputKRS() {
         await getCurrentKRS();
     }
     catch (error) {
+        if (error.code == 'ENOENT') {
+            console.log(`${colors.red}krs.json is missing! plz setup automate configuration first!${colors.reset}`);
+        }
         console.log(error);
     }
 }
