@@ -1,3 +1,7 @@
+const utils = require("../utils");
+const { inputKRSConfig } = require("./inputKRSConfig");
+const fs = require('fs');
+
 async function setupAutomationKRS() {
   const maxSKS = 24;
   let totalSKS = 0;

@@ -35,7 +35,6 @@ async function checkLogin(username, password) {
         const session = JSON.parse(jsonData);
         const mergedData = { ...session, ...loginResult };
         fs.writeFileSync('account.json', JSON.stringify(mergedData, null, 2));
-        console.log(`${utils.colors.green}Logged in as ${username}.${utils.colors.reset}`);
         showMainMenu();
       } else {
         console.log(`${utils.colors.red}Login failed, please reenter your credentials.${utils.colors.reset}`);
@@ -57,6 +56,9 @@ async function loginPrompt() {
 }
 
 async function showMainMenu() {
+  const jsonData = fs.readFileSync('account.json', 'utf8');
+  const account = JSON.parse(jsonData);
+    console.log(`${utils.colors.green}Logged in as ${account.username}.${utils.colors.reset}`);
     const kuotaKRS = await features.getKuotaKRS();
     const data = kuotaKRS.data;
     if (data) {
