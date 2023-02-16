@@ -41,7 +41,7 @@ node main.js
 
 The bot will start running and will guide you through the process of inputting KRS. You can choose from the following options in the main menu:
 
-- Auto Input KRS: Input KRS automatically based on the configuration in the config.json file. <br>
+- Auto Input KRS: Input KRS automatically based on the configuration in the krs.json file. <br>
 There is a check before inputting KRS, the bot will automatically wait until the KRS form is opened
 <img src="https://user-images.githubusercontent.com/83752970/219365733-2293b696-2135-4b5a-835d-8f5f5ceb470d.png" width="800"></img>
 - Setup Config Automate Input KRS: Configure the bot to input KRS automatically.
