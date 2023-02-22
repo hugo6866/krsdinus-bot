@@ -41,10 +41,12 @@ node main.js
 
 The bot will start running and will guide you through the process of inputting KRS. You can choose from the following options in the main menu:
 
-- Auto Input KRS: Input KRS automatically based on the configuration in the config.json file.
+- Auto Input KRS: Input KRS automatically based on the configuration in the krs.json file. <br>
+There is a check before inputting KRS, the bot will automatically wait until the KRS form is opened
+<img src="https://user-images.githubusercontent.com/83752970/219365733-2293b696-2135-4b5a-835d-8f5f5ceb470d.png" width="800"></img>
 - Setup Config Automate Input KRS: Configure the bot to input KRS automatically.
 - Get Current KRS: Get the current KRS that has been inputted.
-![cmd_HkQnRpmRYg](https://user-images.githubusercontent.com/83752970/219342076-ce8a06db-430f-420b-9ce0-0df23242d12b.png)
+![image](https://user-images.githubusercontent.com/83752970/219366317-5b4ac287-7fff-45c2-8954-1f01e0e487c7.png)
 
 - Get List Matkul: Get a list of available courses.
 ![cmd_k4YJk4Gx8c](https://user-images.githubusercontent.com/83752970/219345077-ff65aac6-6811-4394-8137-6e25db3f6f52.png)
