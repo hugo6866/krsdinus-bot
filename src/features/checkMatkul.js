@@ -20,7 +20,7 @@ async function checkMatkul(kodeMatkul) {
         };
         const response = await sendHttpRequest("get", url, headers, null, false);
         const $ = cheerio.load(response.data);
-        const kode = kodeMatkul; 
+        const kode = kodeMatkul.trim(); 
         const row = $('tr').filter((i, el) => $(el).find('td:nth-child(2)').text().includes(kode));
         const sks = row.find('td:nth-child(6)').text().trim(); 
         const jenis = row.find('td:nth-child(5)').text().trim(); 

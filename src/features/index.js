@@ -6,6 +6,7 @@ const getKuotaKRS = require('./getKuota');
 const inputKRS = require('./inputKRS');
 const getIDKelas = require('./getIDKelas');
 const getMatkulKRS = require('./getMatkul');
+const refreshSession = require('./refreshSession');
 
 module.exports = {
     checkAbleInputKRS: checkInput.checkAbleInputKRS,
@@ -15,5 +16,6 @@ module.exports = {
     getKelompokMatkul: getKelompokMatkul.getKelompokMatkul,
     getCurrentKRS: getKRS.getCurrentKRS,
     getKuotaKRS: getKuotaKRS.getKuotaKRS,
-    inputKRS : inputKRS.inputKRS,
+    inputKRS: inputKRS.inputKRS,
+    refreshSession: refreshSession.refreshSession
 };

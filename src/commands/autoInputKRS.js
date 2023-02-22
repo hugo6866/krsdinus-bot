@@ -26,6 +26,7 @@ async function autoInputKRS() {
             console.log(`Jenis: ${course.jenis}`);
             console.log('------------------');
             const idKelas = await getIDKelas(course.kodeMk,course.kelompok);
+            
             if (idKelas) {
                 console.log(`${colors.green} ${course.nama} - ${course.kodeMk} (${course.kelompok}) - Available! ${colors.reset}`)
                 const input = await inputKRS(idKelas, course.kodeMk, course.sks, course.jenis);
@@ -35,7 +36,7 @@ async function autoInputKRS() {
                     console.log("${colors.red}${course.nama} - ${course.kodeMk} (${course.kelompok}) Gagal Input!")
                 }
             } else {
-                console.log(`${colors.red}${course.nama} - ${course.kodeMk} (${course.kelompok}) Gagal! (Bentrok Matkul/Kuota SKS Habis/Kelas Penuh) ${colors.reset}`)
+                console.log(`${colors.red}${course.nama} - ${course.kodeMk} (${course.kelompok}) Gagal! (Bentrok Matkul/Kuota SKS Habis/Kelas Penuh) ${colors.reset} button not found!`)
             }
             
         }

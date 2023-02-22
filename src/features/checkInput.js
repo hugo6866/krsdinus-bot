@@ -16,7 +16,7 @@ async function checkAbleInputKRS() {
             'X-Requested-With': 'XMLHttpRequest'
         };
         const response = await sendHttpRequest("get", url, headers, null, false);
-        console.log(response.data);
+        //console.log(response.data);
         if (response.data.includes('Silahkan Pilih pada dropdown Matakuliah')) {
             return "ok";
         } else {

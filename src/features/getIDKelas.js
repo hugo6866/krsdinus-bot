@@ -3,6 +3,8 @@ const cheerio = require('cheerio');
 
 const fs = require('fs');
 const { parseSessionFromJSON } = require('../save');
+const { features } = require('process');
+const { refreshSession } = require('./refreshSession.js');
 
 
 
@@ -28,6 +30,18 @@ async function getIDKelas(kodeMatkul,kodeKelompok) {
             [csrf.id] : csrf.key
         }
         const response = await sendHttpRequest("post", url, headers, data, false);
+        if (response.data.includes("SILAKAN PILIH JADWAL")) {
+            console.log("session still active!");
+        } else if (response.data.includes("Maaf Jadwal Belum Tersedia")) {
+            console.log(`Maaf Jadwal Belum Tersedia kodeMatkul : ${kodeMatkul}`)
+        } else {
+            console.log("session expired??");
+            console.log(response.data);
+            const session = refreshSession();
+            if (session) {
+                console.log("Session updated!");
+            }
+        }
         //const html = fs.readFileSync('test.html', 'utf-8');
         //const $ = cheerio.load(html);
         const $ = cheerio.load(response.data);
@@ -38,8 +52,8 @@ async function getIDKelas(kodeMatkul,kodeKelompok) {
         const classAttr = $(el).find('a').attr('class'); 
         classNumber = classAttr ? classAttr.match(/\d+/)[0] : null; 
         
-            if (kodeMK === kodeMatkul && kelp === kodeKelompok) {
-            //found!
+            if (kodeMK === kodeMatkul && kelp === kodeKelompok && classNumber != null) {
+            console.log(`Found ${kodeMK} - ${kelp} idKelas : ${classNumber}`)
             return false;
         } 
         });

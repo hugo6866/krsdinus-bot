@@ -28,7 +28,7 @@ async function login() {
 }
 
 async function checkLogin(username, password) {
-    
+
     const loginResult = await authKRS.loginKRS(username, password);
     if (loginResult) {
         const jsonData = fs.readFileSync('account.json', 'utf8');
@@ -81,7 +81,8 @@ async function showMainMenu() {
     console.log(`${utils.colors.yellow}3. Get Current KRS${utils.colors.reset}`);
     console.log(`${utils.colors.yellow}4. Get List Matkul${utils.colors.reset}`);
     console.log(`${utils.colors.yellow}5. Get List Kelas Matkul${utils.colors.reset}`);
-    console.log(`${utils.colors.yellow}6. Exit${utils.colors.reset}`);
+    console.log(`${utils.colors.yellow}6. Input KRS Loop${utils.colors.reset}`);
+    console.log(`${utils.colors.yellow}7. Exit${utils.colors.reset}`);
 
     try {
     const option = await utils.questionAsync(`${utils.colors.red}Choose an option: ${utils.colors.reset}`);
@@ -109,6 +110,10 @@ async function showMainMenu() {
         await backToMainMenu();
         break;
         case '6':
+        await commands.inputKRSLoop();
+        await backToMainMenu();
+        break;
+        case '7':
         console.log(`${utils.colors.green}bye!${utils.colors.reset}`);
         process.exit(-1);
         default:
