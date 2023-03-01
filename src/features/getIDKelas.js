@@ -37,7 +37,7 @@ async function getIDKelas(kodeMatkul,kodeKelompok) {
         } else {
             console.log("session expired??");
             console.log(response.data);
-            const session = refreshSession();
+            const session = await refreshSession();
             if (session) {
                 console.log("Session updated!");
             }
